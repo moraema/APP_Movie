@@ -2,6 +2,7 @@ package com.ema.my_project_crud.core.network
 
 import com.ema.my_project_crud.home.data.dataSource.HomeService
 import com.ema.my_project_crud.login.data.dataSource.LoginService
+import com.ema.my_project_crud.record.data.dataSource.ScreenService
 import com.ema.my_project_crud.register.data.dataSource.RegisterService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,5 +28,9 @@ object RetrofitHelper {
 
     val authService: LoginService by lazy {
         retrofit.create(LoginService::class.java)
+    }
+
+    val speechService: ScreenService by lazy {
+        retrofit.create(ScreenService::class.java)
     }
 }

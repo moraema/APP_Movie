@@ -13,3 +13,6 @@ object Home
 
 @Serializable
 object AddMovie
+
+@Serializable
+object MovieSpeech

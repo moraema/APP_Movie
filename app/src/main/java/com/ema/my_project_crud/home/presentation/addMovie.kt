@@ -1,5 +1,6 @@
 package com.ema.my_project_crud.home.presentation
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -38,15 +39,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
+import com.ema.my_project_crud.home.data.model.MovieRequest
+import android.speech.RecognizerIntent
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.material.icons.filled.Mic
+import androidx.compose.material3.IconButton
+import java.util.Locale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ema.my_project_crud.R
-import com.ema.my_project_crud.home.data.model.MovieRequest
+
 
 //@Preview(showBackground = true)
 @Composable
-fun AddMovieScreen(viewModel: AddMovieViewModel, onNavigateHome: () -> Unit) {
+fun AddMovieScreen(viewModel: AddMovieViewModel, onNavigateHome: () -> Unit, onRecordMovie:() -> Unit) {
 
     var titulo by remember { mutableStateOf("") }
     var genero by remember { mutableStateOf("") }
@@ -89,6 +96,8 @@ fun AddMovieScreen(viewModel: AddMovieViewModel, onNavigateHome: () -> Unit) {
             )
         }
 
+        Spacer(modifier = Modifier.height(20.dp))
+        
         AddMovieActions(isButtonEnabled, onAddMovieClick = {
 
                     val movieRequest = MovieRequest(
@@ -109,6 +118,10 @@ fun AddMovieScreen(viewModel: AddMovieViewModel, onNavigateHome: () -> Unit) {
         Spacer(modifier = Modifier.height(20.dp))
 
         SeeMoviesActions(onAddMovieClick = { onNavigateHome() })
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        SpeechMovies(onRecordMovieClick = { onRecordMovie() })
 
     }
 }
@@ -142,9 +155,10 @@ fun AddMovieFields(
     año: String, onAñoChange: (String) -> Unit,
     imagen: String, onImagenChange: (String) -> Unit
 ) {
+
     OutlinedTextField(
         value = titulo,
-        onValueChange =  onTituloChange,
+        onValueChange = onTituloChange,
         label = { Text(text = "titulo", color = White) },
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = White,
@@ -158,8 +172,9 @@ fun AddMovieFields(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 10.dp)
-            .onFocusChanged {  }
+            .onFocusChanged { }
     )
+
 
     Spacer(modifier = Modifier.height(20.dp))
 
@@ -265,5 +280,17 @@ fun SeeMoviesActions(onAddMovieClick: () -> Unit) {
         modifier = Modifier
             .height(32.dp)
             .clickable { onAddMovieClick() }
+    )
+}
+
+@Composable
+fun SpeechMovies(onRecordMovieClick: () -> Unit) {
+    Text(
+        text = "Recomendar peliculas",
+        color = Color(0xFFF25B98),
+        fontSize = 16.sp,
+        modifier = Modifier
+            .height(32.dp)
+            .clickable { onRecordMovieClick() }
     )
 }
