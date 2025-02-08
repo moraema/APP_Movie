@@ -161,6 +161,7 @@ fun AddRecord(
 
 @Composable
 fun AddMovieRecord(isButtonEnabled : Boolean, onAddMovieClick: () -> Unit, ) {
+    Spacer(modifier = Modifier.height(20.dp))
     Column (
         horizontalAlignment = Alignment.CenterHorizontally
     ){

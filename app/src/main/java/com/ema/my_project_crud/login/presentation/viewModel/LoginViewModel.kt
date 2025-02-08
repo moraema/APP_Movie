@@ -1,4 +1,4 @@
-package com.ema.my_project_crud.login.presentation
+package com.ema.my_project_crud.login.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

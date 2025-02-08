@@ -1,5 +1,6 @@
 package com.ema.my_project_crud.core.network
 
+import com.ema.my_project_crud.addMovie.data.dataSource.AddMovieService
 import com.ema.my_project_crud.home.data.dataSource.HomeService
 import com.ema.my_project_crud.login.data.dataSource.LoginService
 import com.ema.my_project_crud.record.data.dataSource.ScreenService
@@ -29,6 +30,11 @@ object RetrofitHelper {
     val authService: LoginService by lazy {
         retrofit.create(LoginService::class.java)
     }
+
+    val addMovieService: AddMovieService by lazy {
+        retrofit.create(AddMovieService::class.java)
+    }
+
 
     val speechService: ScreenService by lazy {
         retrofit.create(ScreenService::class.java)

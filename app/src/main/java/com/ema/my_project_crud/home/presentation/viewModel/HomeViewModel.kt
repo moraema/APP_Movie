@@ -1,7 +1,6 @@
-package com.ema.my_project_crud.home.presentation
+package com.ema.my_project_crud.home.presentation.viewModel
 
 import android.util.Log
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

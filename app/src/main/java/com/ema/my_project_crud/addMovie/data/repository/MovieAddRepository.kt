@@ -1,18 +1,19 @@
-package com.ema.my_project_crud.home.data.repository
+package com.ema.my_project_crud.addMovie.data.repository
 
 import android.util.Log
+import com.ema.my_project_crud.addMovie.data.model.MovieAddRequest
 import com.ema.my_project_crud.core.network.RetrofitHelper
-import com.ema.my_project_crud.home.data.model.MovieAddResponse
+import com.ema.my_project_crud.addMovie.data.model.MovieAddResponse
 import com.ema.my_project_crud.home.data.model.MovieRequest
 import retrofit2.Response
 import kotlin.Result
 
 class MovieAddRepository() {
-    private val movieService = RetrofitHelper.homeService
+    private val addMovieService = RetrofitHelper.addMovieService
 
-    suspend fun addMovie(movieRequest: MovieRequest): Result<String> {
+    suspend fun addMovie(movieAddRequest: MovieAddRequest): Result<String> {
         return try {
-            val response: Response<MovieAddResponse> = movieService.addMovie(movieRequest)
+            val response: Response<MovieAddResponse> = addMovieService.addMovie(movieAddRequest)
             if (response.isSuccessful) {
                 response.body()?.let { result ->
                     Log.d("MovieRepository", "Respuesta: ${result.message}")

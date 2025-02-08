@@ -1,4 +1,4 @@
-package com.ema.my_project_crud.home.data.model
+package com.ema.my_project_crud.addMovie.data.model
 
 import com.google.gson.annotations.SerializedName
 

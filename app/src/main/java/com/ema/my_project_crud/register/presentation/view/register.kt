@@ -1,4 +1,4 @@
-package com.ema.my_project_crud.register.presentation
+package com.ema.my_project_crud.register.presentation.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -43,12 +43,11 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ema.my_project_crud.R
 import com.ema.my_project_crud.register.data.model.UsuarioRequest
+import com.ema.my_project_crud.register.presentation.viewModel.RegisterViewModel
 
 //@Preview(showBackground = true)
 @Composable

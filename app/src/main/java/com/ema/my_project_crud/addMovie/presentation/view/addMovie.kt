@@ -1,6 +1,5 @@
-package com.ema.my_project_crud.home.presentation
+package com.ema.my_project_crud.addMovie.presentation.view
 
-import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,7 +17,6 @@ import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Link
 import androidx.compose.material.icons.filled.Movie
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -26,7 +24,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -39,16 +36,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import com.ema.my_project_crud.home.data.model.MovieRequest
-import android.speech.RecognizerIntent
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.material.icons.filled.Mic
-import androidx.compose.material3.IconButton
-import java.util.Locale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ema.my_project_crud.R
+import com.ema.my_project_crud.addMovie.data.model.MovieAddRequest
+import com.ema.my_project_crud.addMovie.presentation.viewModel.AddMovieViewModel
 
 
 //@Preview(showBackground = true)
@@ -100,13 +92,13 @@ fun AddMovieScreen(viewModel: AddMovieViewModel, onNavigateHome: () -> Unit, onR
         
         AddMovieActions(isButtonEnabled, onAddMovieClick = {
 
-                    val movieRequest = MovieRequest(
+                    val movieAddRequest = MovieAddRequest(
                         titulo = titulo,
                         genero = genero,
                         año = año.toInt(),
                         imagen = imagen
                     )
-                    viewModel.addMovie(movieRequest)
+                    viewModel.addMovie(movieAddRequest)
 
                     titulo = ""
                     genero = ""

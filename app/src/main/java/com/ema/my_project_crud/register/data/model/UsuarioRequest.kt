@@ -8,7 +8,3 @@ data class UsuarioRequest(
     val contraseña: String
 )
 
-data class usuarioResponse(
-    @SerializedName("data")
-    val usuario: List<UsuarioRequest>
-)
